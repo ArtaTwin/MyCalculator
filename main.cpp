@@ -2,8 +2,18 @@
 
 using namespace std;
 
-int main(){
-    cout << "Hello World!" << endl;
+int main(int argc, char* argv[]){
+    const int Dividend = 6;
+    const int Divisor = 2;
 
-    return 1;
+    int Result = (Dividend/Divisor);
+    Result = Result + 3;
+
+    cout << Result << endl;
+
+    char StopCharacter;
+    cout << endl << "Press a key and \"Enter\": ";
+
+    cin >> StopCharacter;
+    return 0;
 }
