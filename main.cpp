@@ -4,40 +4,33 @@ using namespace std;
 
 int main(int argc, char* argv[])
 {
+
+    cin.exceptions(cin.failbit);
+
     int ReturnCode = 0;
 
-    float Dividend = 1;
-    cout << "Dividend: " << endl;
-    cin >> Dividend;
-
-    if (!cin.fail())
+    try
     {
+        float Dividend = 1;
+        cout << "Dividend: " << endl;
+        cin >> Dividend;
+
         float Divisor = 1;
         cout << "Divisor: " << endl;
         cin >> Divisor;
 
-        if (!cin.fail())
-        {
-            float Result = (Dividend/Divisor);
-            cout << Result << endl;
-        }
-        else
-        {
-            cerr << "Input error, not a number?" << endl;
-            
-            cin.clear();
+        float Result = (Dividend/Divisor);
 
-            char BadInput[5];
-            cin >> BadInput;
-
-            ReturnCode = 1;
-        };
+        cout << Result << endl;
     }
-    else
+    catch (...)
     {
-        cerr << "Input error, not a number?" << endl;
+        cerr << 
+            "Input error, not a number?" <<
+            endl;
 
         cin.clear();
+
 
         char BadInput[5];
         cin >> BadInput;
