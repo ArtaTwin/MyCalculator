@@ -31,4 +31,4 @@
 
 
     ]
-}    bool UserWantsToContinue(const char *theThingWeAreDoing)
+}
