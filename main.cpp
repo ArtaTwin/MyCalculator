@@ -1,11 +1,9 @@
 #include <iostream>
 
-using namespace std;
+#include "PromptModule.h"
+#include "ErrorHandlingModule.h"
 
-void Initialize(void)
-{
-    cin.exceptions(cin.failbit);
-}
+using namespace std;
 
 float GetDividend(void)
 {
@@ -27,37 +25,15 @@ float GetDivisor(void)
     return Divisor;
 }
 
-float Divide(const float theDividend, const float theDivisor)
+float Divide
+  (const float theDividend, const float theDivisor)
 {
     return (theDividend/theDivisor);
 }
 
-int HadleNotANumberError(void)
-{
-    cerr << 
-        "Input error, not a number?" <<
-        endl;
-
-    cin.clear();
-
-
-    char BadInput[5];
-    cin >> BadInput;
-
-    return 1;
-}
-
-void PauseForUserAcknowledgement(void)
-{
-
-    char StopCharacter;
-    cout << endl << "Press a key and \"Enter\": ";
-    cin >> StopCharacter;
-}
-
 int main(int argc, char* argv[])
 {
-    Initialize();
+    SAMSErrorHandling::Initialize();
 
     int ReturnCode = 0;
 
@@ -70,9 +46,10 @@ int main(int argc, char* argv[])
     }
     catch (...)
     {
-        ReturnCode = HadleNotANumberError();
+        ReturnCode =
+            SAMSErrorHandling::HadleNotANumberError();
     };
 
-    PauseForUserAcknowledgement();
+    SAMSPrompt::PauseForUserAcknowledgement();
     return ReturnCode;
 }
